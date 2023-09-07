@@ -157,9 +157,10 @@ function gameEngine(){
     if(gameStarted && !gameover){
         bgm.play();
     }
+    
+    bg_y += my_car_speed;
     enemy_car1_y += my_car_speed;
     enemy_car2_y += my_car_speed;
-    bg_y += my_car_speed;
 
     if(isCollision()){
         bgm.pause();
@@ -214,7 +215,7 @@ function gameEngine(){
     if((Math.abs(enemy_car1_y-enemy_car2_y)<=(car_height*3)) && enemy_car1_y<-90 && enemy_car2_y<-90){
         if(enemy_car1_x!=enemy_car2_x){
             console.log("different")
-            if(enemy_car1_y>=enemy_car2_y){
+            if(enemy_car1_y<=enemy_car2_y){
                 enemy_car1_y -= car_height*randomNumber(3, 6);
             }
             else{
